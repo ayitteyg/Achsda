@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    
+    <title></title>
+</head>
+<body>
+
+    {% block content %}
+    {% include 'navbar.html' with T=T  M=M   S=S %}
+
+
+
+    <div class="container-fluid">
+      <br>
+        <input type="text" id="srchInput" onkeyup="SRCHfunction()" placeholder="Search for member" title="Type in a name">   
+    </div>
+
+    
+    <div class="container-fluid">         
+      <ul id="srchItem">
+        {% for i in lst %}
+            <li>  
+            <center>
+              <div class="card mb-3" style="max-width: 500px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="{% static 'img/icon.png' %}" class="img-fluid rounded-start" alt="..." width="100" height="150"> 
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body"  style="background-color: rgb(202, 237, 240);">
+                        <h4 class="textCard" style="text-align: left;"> <a href="">Name: {{i.get_name}}</a></h4>
+
+                        <h6 class="textCard" style="text-align: left;" > Profession: 
+                          <span class="far fa-address-card" style="font-size:15px;color:rgb(5, 28, 92)" style="font-size:48px;color:red"></span> 
+                          {{i.get_profession}}</h6>
+
+                        
+                        <h6 class="textCard" style="text-align: left;" > Residence: 
+                          <span class="fa fa-map-marker" style="font-size:15px;color:rgb(66, 4, 4)"></span> 
+                          {{i.get_residence}}</h6>
+
+                        <p class="card-text" style="text-align: left;">
+                           <small class="textCard1">Marital Status: {{i.get_mstatus}}</small>
+                           <a href="tel: {{i.contact}}">{{i.get_contact}}  <span class="fa fa-phone"></span></a>
+                             
+                        </p>
+
+
+                      </div>
+                    </div>
+                  </div>
+              </div>  
+          </center>
+          </li>        
+        {% endfor %}
+      </ul>           
+    </div>
+           
+    {% endblock %}
+
+
+    
+
+    
+
+</body>
+</html>
+
+
+
+   {% for i in rng %}
+    <div class="container-fluid">
+        <center>
+            <div class="card mb-3" style="max-width: 500px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{% static 'images/icon.png' %}" class="img-fluid rounded-start" alt="..." width="100" height="150">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title" style="text-align: left;">Name: Ayittey Odame George</h5>
+                      <h6 class="card-text" style="text-align: left;" > Pledge:  GHc: 1,000</h6>
+                      <h6 class="card-text" style="text-align: left;" > Returned: GHc: 1,000</h6>
+                      <h6 class="card-text" style="text-align: left;" > Remains  : GHc: 1,000</h6>
+                      <p class="card-text" style="text-align: left;"><small class="text-body-secondary">Last seen 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+            </div>  
+        </center>
+    </div>
+    {% endfor %}
+
+
+
+    {% for i in rng %}
+    <div class="container-fluid">
+        <center>
+            <div class="card mb-3" style="max-width: 500px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{% static 'images/icon.png' %}" class="img-fluid rounded-start" alt="..." width="100" height="150">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title" style="text-align: left;">Name: Ayittey Odame George</h5>
+                      <h6 class="card-text" style="text-align: left;" > Pledge:  GHc: 1,000</h6>
+                      <h6 class="card-text" style="text-align: left;" > Returned: GHc: 1,000</h6>
+                      <h6 class="card-text" style="text-align: left;" > Remains  : GHc: 1,000</h6>
+                      <p class="card-text" style="text-align: left;"><small class="text-body-secondary">Last seen 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+            </div>  
+        </center>
+    </div>
+    {% endfor %}
