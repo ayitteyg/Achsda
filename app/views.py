@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect
+from django.shortcuts import render #HttpResponse, redirect, HttpResponseRedirect
 from .models import Member
 # Create your views here.
 

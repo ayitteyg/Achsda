@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
-from import_export import resources
-from django.db.models import Sum, F
+#from django.contrib.auth.models import User
+#from import_export import resources
+#from django.db.models import Sum, F
 
 
 
