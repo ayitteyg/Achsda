@@ -18,6 +18,13 @@ class loginform(forms.Form):
         return cleaned_data 
 
 
+class loginformC(forms.Form):
+    contact = forms.CharField(max_length=30, label='',widget=forms.TextInput (attrs={'placeholder': 'contact'}))
+    def clean(self):
+        cleaned_data = super(loginformC, self).clean()
+        return cleaned_data 
+
+
 mar_status = (('married', 'married'),('single', 'single'),('divorce','divorce'), ('widow(er)','widow(er)'))
 
 class Memberform(forms.Form):
@@ -25,12 +32,18 @@ class Memberform(forms.Form):
     contact = forms.CharField(label='', widget=forms.TextInput (attrs={'placeholder': 'Contact'}))
     profession = forms.CharField(label='', widget=forms.TextInput (attrs={'placeholder': 'profession'}))
     residence = forms.CharField(label='', widget=forms.TextInput (attrs={'placeholder': 'residence'}))
-    mstatus = forms.CharField(choices=mar_status, default='married', max_length=10)
+    mstatus = forms.ChoiceField(choices=mar_status)
     def clean(self):
         cleaned_data = super(Memberform, self).clean()
         return cleaned_data 
 
 
+
+class Memberupdateform(forms.Form):
+    field = forms.CharField(label='', widget=forms.TextInput (attrs={'placeholder': 'field to update'}))
+    value = forms.CharField(label='', widget=forms.TextInput (attrs={'placeholder': 'value'}))
+    def clean(self):
+        return self.data
 
 
 

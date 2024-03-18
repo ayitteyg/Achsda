@@ -3,7 +3,7 @@
 
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-body-tertiary">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
@@ -24,16 +24,16 @@
         <!-- Navbar brand -->
         <a class="navbar-brand mt-2 mt-lg-0" href="#">
           <img
-            src="../static/img/lg2.png"
+            src="../static/img/logo1.png"
             height="45"
-            alt="ACHSDA Logo"
+            alt="Logo"
             loading="lazy"
           />
         </a>
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="textCard" href="{% url 'homepage' %}">Home</a>
+            <a class="textCard" href="{% url 'coverpage' %}">Logout</a>
           </li>
          
         </ul>
@@ -44,6 +44,11 @@
       <!-- Right elements -->
       <div class="d-flex align-items-center">
   
+
+
+       <!--user-->
+        <h5 class='textCard'> {{usr}} &nbsp &nbsp &nbsp </h5> 
+
         <!-- Notifications -->
         <div class="dropdown">
           <a
@@ -55,15 +60,20 @@
             aria-expanded="false"
           >
             <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            <span 
+            class="badge rounded-pill badge-notification bg-danger"
+            data-bs-toggle="modal" data-bs-target="#AnnoucementModal"
+            
+            >1</span>
           </a>
           <ul
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuLink"
           >
-            <li>
-              <a class="dropdown-item textCard" href="#">Announcement</a>
-            </li>
+          <li>
+            <a class="dropdown-item textCard" href="#">Annoucement</a>
+          </li>
+              
           </ul>
         </div>
         <!-- Avatar -->
@@ -89,14 +99,12 @@
             aria-labelledby="navbarDropdownMenuAvatar"
           >
             <li>
-              <a class="dropdown-item textCard" href="#">Members: {{T}}</a>
+              <a class="dropdown-item textCard" href="http://127.0.0.1:8000/admin">Administrator</a>
             </li>
             <li>
-              <a class="dropdown-item textCard" href="#">Married: {{M}}</a>
+              <a class="dropdown-item textCard" href="{% url 'officerslogin' %}">Officers</a>
             </li>
-            <li>
-              <a class="dropdown-item textCard" href="#">Singles: {{S}}</a>
-            </li>
+            
           </ul>
         </div>
       </div>
@@ -105,6 +113,49 @@
     <!-- Container wrapper -->
   </nav>
   <!-- Navbar -->
+
+
+
+   <!--Modal-->
+   <div class="modal fade" id="AnnoucementModal" tabindex="-1" aria-labelledby="AnnoucementModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-top">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 textCard" id="AnnoucementModalLabel">
+
+            <img src="../static/img/ancs2.png" alt="{{ post.created_by.username }}" height=50 width=50>
+            Weekly Annoucement
+          </h1>
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        {% for i in info%}
+        <div class="card mb-3" style="max-width: 500px;">
+          <div class="row g-0">
+            <div class="col-md-4"><p class="" style="text-align: center;">{{i}}</p></div>
+            <div class="col-md-8">
+              <div class="card-body"  style="background-color: rgb(102, 137, 140);">
+
+                <h4 class="ANCS-h" style="text-align: left;"> Communion service</h4>                
+                <h6 class="ANCS-b" style="text-align: justify;"> First communion service comes off on 16th March, 2024. Immedidately after service</h6>
+                <p class="card-text" style="text-align: right; color:yellow;"><small>Posted 3 mins ago</small></p> 
+
+              </div>
+            </div>
+          </div>
+          <br>
+        </div> 
+        {%endfor%}   
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 
  <script>
    // Initialization for ES Users
