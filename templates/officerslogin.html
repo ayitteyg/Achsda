@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title></title>
+</head>
+<body>
+
+ {% block content %}
+  
+  {% include 'navbar.html' %}
+
+
+      <!--Main Navigation-->
+<header>
+  <style>
+    #intro {
+      background-image: url("../static/img/lg2.png");
+      height: 100vh;
+     
+    }
+
+    /* Height for devices larger than 576px */
+    @media (min-width: 992px) {
+      #intro {
+        margin-top: -58.59px;
+      }
+    }
+
+    .navbar .nav-link {
+      color: #fff !important;
+    }
+  </style>
+        <br><br> 
+           
+
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Officers</li>
+          </ol>
+        </nav>
+  
+          <div class="container-fluid">
+            <center>
+                <div class="col-lg-6">               
+                    <img src="../static/img/admin.jpeg" alt="" width="120" height="180" >
+                </div>  
+            </center>    
+          </div>
+    
+    
+            <div class="py-2 text-center">
+              <h3 class="textCard">Officers</h3>
+              <h2 class="textCard">Login</h2>
+               
+            </div>
+    
+            <div class="container-fluid">          
+              <center>
+                  <br>
+                  <div class="col-lg-3">
+                  {% csrf_token %}
+                      <form action="", method="post" novalidate>
+                          {% csrf_token %}
+                          {% include 'formTemplate.html' with form=form %} 
+                          {% if messages %}
+                          <ul class="messages">
+                              {% for message in messages %}
+                              <small class="{{ message.tags}}"  style="color: brown;">{{message}}</small>
+                              {% endfor %}
+                          </ul>
+                          {% endif %}      
+                          <br>
+                          <button type="submit" class="btn btn-secondary"  id="login"> Login</button>    
+                      </form>
+                  </div>
+              </center>
+          </div>
+       
+         
+         
+          
+       
+    
+  <!-- Background image -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+
+<!--Main layout-->
+
+<!--Footer-->
+
+      {% include 'footbar.html' %}
+  
+      {% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    
+    <title></title>
+</head>
+<body>
+
+    {% block content %}
+    {% include 'navbar.html'%}
+
+    <br><br><br>    
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'homepage' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Officers</li>
+      </ol>
+    </nav>
+    
+    <div class="container-fluid">   
+
+        <div class="container-fluid">
+          <center>
+              <div class="col-lg-6">               
+                  <img src="../static/img/admin.jpg" alt="" width="120" height="200" >
+              </div>  
+          </center>    
+        </div>
+
+          <center>
+
+
+
+              <h4 class="textCard" style="text-align: left;"> 
+                <span class="fa fa-phone"></span> 
+                <a href="#">Departments</a>
+              </h4>
+
+          </center>
+              
+    </div>
+    
+    {% include 'footbar.html'%}
+    {% endblock %}
+
+
+    
+
+    
+
+</body>
+</html>
