@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Member
+from .models import Member, Notice
 from import_export.admin import ImportExportModelAdmin
 #from django.contrib import admin
 
@@ -8,4 +8,9 @@ from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 @admin.register(Member)
 class MemberAdmin(ImportExportModelAdmin):
+    pass
+
+
+@admin.register(Notice)
+class NoticeAdmin(ImportExportModelAdmin):
     pass

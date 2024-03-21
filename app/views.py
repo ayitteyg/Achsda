@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect #HttpResponse, , HttpResponseRedirect
-from .models import Member
+from .models import Member,Notice
 from .forms import loginformC, loginform, Memberupdateform
 from django.contrib import messages
 from django.contrib.auth import authenticate
@@ -11,9 +11,10 @@ from django.contrib.auth import logout as user_logout
 
 
 def info():
-    info = [i for i in range (1,12)]
+    info = Notice.objects.all().order_by('-date')[:10]
     context = {'info':info}
     return context
+
 
 
 def coverpage(request):

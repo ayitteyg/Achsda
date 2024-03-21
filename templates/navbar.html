@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load humanize %}
 
 <body>
 <!-- Navbar -->
@@ -137,9 +137,9 @@
             <div class="col-md-8">
               <div class="card-body"  style="background-color: rgb(102, 137, 140);">
 
-                <h4 class="ANCS-h" style="text-align: left;"> Communion service</h4>                
-                <h6 class="ANCS-b" style="text-align: justify;"> First communion service comes off on 16th March, 2024. Immedidately after service</h6>
-                <p class="card-text" style="text-align: right; color:yellow;"><small>Posted 3 mins ago</small></p> 
+                <h4 class="ANCS-h" style="text-align: left;"> {{i.get_subject}}</h4>                
+                <h6 class="ANCS-b" style="text-align: justify;">{{i.get_content}} </h6>
+                <p class="card-text" style="text-align: right; color:yellow;"><small>Posted {{i.get_date|naturaltime}}</small></p> 
 
               </div>
             </div>

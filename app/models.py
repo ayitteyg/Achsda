@@ -49,4 +49,24 @@ class Member(models.Model):
         for k in Member.objects.filter(contact=c):       
             return k.name  
      
+
+
+class Notice(models.Model):
+     subject = models.CharField(max_length=50, unique=False)
+     content = models.CharField(max_length=250)
+     date = models.DateTimeField(auto_now_add=True)
      
+     def __str__(self):
+        return self.subject
+
+     def get_subject(self):
+        for k in Notice.objects.filter(id=self.id):       
+            return k.subject  
+    
+     def get_content(self):
+        for k in Notice.objects.filter(id=self.id):       
+            return k.content
+     
+     def get_date(self):
+        for k in Notice.objects.filter(id=self.id):       
+            return k.date
